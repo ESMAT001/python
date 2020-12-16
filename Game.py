@@ -1,15 +1,10 @@
 import os
 from random import randint
-
-
-# print(randint(1, 9))
-
 columns = [
     [" ", " ", " "],
     [" ", " ", " "],
     [" ", " ", " "],
 ]
-
 player = True
 count = 0
 y_space = "\n"*9
