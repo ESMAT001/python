@@ -1,5 +1,6 @@
-import os
+from os import system
 from random import randint
+
 columns = [
     [" ", " ", " "],
     [" ", " ", " "],
@@ -14,10 +15,10 @@ x_space = "\t"*4
 def main():
     if player:
         print_game()
-    if count is not 9:
+    if count != 9:
         player_sign = ("x", "o")[not player]
         chk_win(player_sign)
-        player_sign = ("x", "o")[player]
+        player_sign = 'x' if player else 'o'
         if player:
             val = int(input(f"\n\n\n{x_space}{player_sign} round :"))
             insert(val, player_sign)
@@ -29,14 +30,14 @@ def main():
 
 
 def print_game():
-    os.system("cls")
+    system("cls")
     print(y_space, x_space, end="")
     for x in range(3):
         for y in range(3):
             print(f" {columns[x][y]}", end="")
-            if y is not 2:
+            if y != 2:
                 print(" |", end="")
-        if x is not 2:
+        if x != 2:
             print(f"\n{x_space}--  ---  --\n{x_space}", end="")
 
 
@@ -50,7 +51,7 @@ def computer(player_sign):
         outter_index = ((val + (9 - val)) / 3) - 1
     outter_index = int(outter_index)
     inner_index = (val - 1 % 3) % 3
-    if columns[outter_index][inner_index] is " ":
+    if columns[outter_index][inner_index] == " ":
         insert(val, player_sign)
     else:
         computer(player_sign)
@@ -67,7 +68,7 @@ def insert(val, player_sign):
             outter_index = ((val + (9 - val)) / 3) - 1
         outter_index = int(outter_index)
         inner_index = (val - 1 % 3) % 3
-        if columns[outter_index][inner_index] is " ":
+        if columns[outter_index][inner_index] == " ":
             columns[outter_index][inner_index] = player_sign
             count += 1
             player = not (player)
@@ -77,12 +78,12 @@ def chk_win(player_sign):
     win_seq = set()
     for x in range(3):
         for y in range(3):
-            if columns[x][y] is player_sign:
-                if x is 0:
+            if columns[x][y] == player_sign:
+                if x == 0:
                     win_seq.add(x + y + 1)
-                elif x is 1:
+                elif x == 1:
                     win_seq.add(3 + y + 1)
-                elif x is 2:
+                elif x == 2:
                     win_seq.add(6+y+1)
     if {1, 2, 3}.issubset(win_seq) or \
         {4, 5, 6}.issubset(win_seq) or\
