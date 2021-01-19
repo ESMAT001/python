@@ -42,3 +42,46 @@ def pl_of_none_pl(number):
 
     temp_num = temp_num * ( 10 ** ( len_original_num // 2 ) )
     return temp_num + first_half_part
+
+
+def palindrome(number):
+    
+    if is_palindrome(number):
+        return True
+    
+    pl = pl_of_none_pl(number)
+
+    if pl > number:
+        
+        return pl
+    
+    len_original_num = len_num(number)
+    
+    if len_original_num==2:
+        return pl+11
+    
+    x=0
+    if len_original_num % 2 == 0:
+        x= 11 * (10**(len_original_num-3))
+    else:
+         x= 1 * (10**(len_original_num-2))
+#     x= 11 if len_original_num % 2 == 0 else 1
+#     x= x * (10**(len_original_num-2))
+    print('pl',pl,'x',x)
+    
+    
+#     if len_original_num == 2:
+#         return pl+11
+    
+#     counter=0
+#     ten_res=0
+#     while ((len_original_num - counter)-2)>0:
+        
+#         ten_res += 10 ** (( len_original_num - counter) -2 )
+        
+#         counter += 1
+        
+    if (is_palindrome(pl+x)):
+        return pl+x
+#     return False
+    return palindrome(pl+x)
