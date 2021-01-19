@@ -96,3 +96,5 @@ def old_way(number):
 num=100221
 print('old way', old_way(num))
 print('new way',palindrome(num))
+
+pl_of_none_pl(121)
