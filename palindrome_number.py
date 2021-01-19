@@ -85,3 +85,10 @@ def palindrome(number):
         return pl+x
 #     return False
     return palindrome(pl+x)
+
+def old_way(number):
+    if is_palindrome(number):
+        return True
+    while str(number)[::-1] != str(number):
+        number+=1
+    return number
