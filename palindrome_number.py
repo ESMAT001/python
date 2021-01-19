@@ -92,3 +92,7 @@ def old_way(number):
     while str(number)[::-1] != str(number):
         number+=1
     return number
+
+num=100221
+print('old way', old_way(num))
+print('new way',palindrome(num))
