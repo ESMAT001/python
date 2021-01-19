@@ -8,3 +8,5 @@ def commonCharacterCount(s1, s2):
             res+=1
             s2.pop(i)
     return res
+
+commonCharacterCount("aabcc", "adcaa")
