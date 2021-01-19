@@ -1,4 +1,4 @@
-import os
+from os import system
 
 
 columns1=[
@@ -17,7 +17,7 @@ player_sign=("x","o")[player]
 count=0
 def show():
     global player_sign
-    os.system("cls")
+    system("cls")
     for x in range(3):
         for y in range(3):
             print(" {}".format(columns1[x][y]),end=" ")
@@ -73,7 +73,8 @@ def chk_win(player_sign):
                     win_seq.add(3+y+1)
                 elif x==2:
                     win_seq.add(6+y+1)
-    if {1,2,3}.issubset(win_seq) or {4,5,6}.issubset(win_seq) or {7,8,9}.issubset(win_seq) or {1,5,9}.issubset(win_seq) or {3,5,7}.issubset(win_seq) or {1,4,7}.issubset(win_seq) or {2,5,8}.issubset(win_seq) or {3,6,9}.issubset(win_seq):
+    if {1,2,3}.issubset(win_seq) or {4,5,6}.issubset(win_seq) or {7,8,9}.issubset(win_seq) or {1,5,9}.issubset(win_seq) or\
+     {3,5,7}.issubset(win_seq) or {1,4,7}.issubset(win_seq) or {2,5,8}.issubset(win_seq) or {3,6,9}.issubset(win_seq):
         exit("\n\n\n{} is the winner\n\n\n".format(player_sign))
 show()
 
