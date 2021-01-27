@@ -43,9 +43,11 @@ def pl_of_none_pl(number):
     temp_num = temp_num * ( 10 ** ( len_original_num // 2 ) )
     return temp_num + first_half_part
 
-
 def palindrome(number):
-    
+    '''
+    This function will return True if the number is palindrome.
+    if the number is not palindrome this function will return the next nearest number that is palindrome.
+    '''
     if is_palindrome(number):
         return True
     
@@ -62,29 +64,15 @@ def palindrome(number):
     
     x=0
     if len_original_num % 2 == 0:
-        x= 11 * (10**(len_original_num-3))
+        x= 11 * ( 10 ** (len_original_num -((len_original_num/2)+1) ) )
     else:
-         x= 1 * (10**(len_original_num-2))
-#     x= 11 if len_original_num % 2 == 0 else 1
-#     x= x * (10**(len_original_num-2))
-    print('pl',pl,'x',x)
-    
-    
-#     if len_original_num == 2:
-#         return pl+11
-    
-#     counter=0
-#     ten_res=0
-#     while ((len_original_num - counter)-2)>0:
-        
-#         ten_res += 10 ** (( len_original_num - counter) -2 )
-        
-#         counter += 1
+        x= 1 * (10 ** (len_original_num -( (len_original_num+1)/2 ) ))
         
     if (is_palindrome(pl+x)):
-        return pl+x
+        return pl+int(x)
 #     return False
-    return palindrome(pl+x)
+#     print("after")
+#     return palindrome(pl+x)
 
 def old_way(number):
     if is_palindrome(number):
@@ -93,8 +81,6 @@ def old_way(number):
         number+=1
     return number
 
-num=100221
-print('old way', old_way(num))
-print('new way',palindrome(num))
-
-pl_of_none_pl(121)
+v=1002211221220
+print('old way',old_way(v))
+print('old way',palindrome(v))
