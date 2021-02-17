@@ -17,5 +17,5 @@ def are_braces_closed(txt):
     else:
         return True
 
-res=are_braces_closed("{2+(2+3{2-[{}]})}")
+res=are_braces_closed("{()[]}")
 print(res)
